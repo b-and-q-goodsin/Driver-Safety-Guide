@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Voice test</title>
+<style>
+body{margin:0;background:#eef3f7;font-family:Arial,Helvetica,sans-serif;color:#17202a}
+.app{max-width:540px;margin:auto;background:#fff;min-height:100vh;padding:20px}
+h1{color:#073763;font-size:24px;margin:0 0 6px}
+p{line-height:1.45;margin:8px 0}
+.row{border:2px solid #d8e1e8;border-radius:8px;padding:12px;margin:12px 0}
+.row b{font-size:18px;color:#073763}
+.ok{color:#137333;font-weight:700}.no{color:#b3261e;font-weight:700}
+button{border:0;border-radius:8px;padding:13px 14px;font-weight:800;font-size:16px;background:#0b5cab;color:#fff;margin:8px 8px 0 0;font-family:inherit}
+button.sec{background:#e8edf1;color:#073763}
+select{width:100%;font-size:15px;padding:10px;margin-top:8px;border-radius:6px;border:2px solid #d8e1e8;background:#fff}
+small{color:#5f6b76;display:block;margin-top:6px;word-break:break-word}
+textarea{width:100%;height:230px;font-size:12px;margin-top:8px}
+.warn{background:#fff4ce;border-left:5px solid #f5b400;padding:12px;border-radius:6px}
+label{display:block;margin-top:10px;font-size:14px;font-weight:700}
+</style></head><body><div class="app">
+<h1>Voice test</h1>
+<p>For testing only. For each language, the best voice is chosen for you. Play it, then try the other voices in the list and rate how human each one sounds.</p>
+<div class="warn">Turn the volume up. On iPhone, check the silent switch is off.</div>
+<div id="env"></div>
+<div id="rows"></div>
+<button class="sec" id="refresh">Refresh voice list</button>
+<p><b>Results to copy and send back</b></p>
+<textarea id="out" readonly></textarea>
+<script>
+const L=[
+ ['en','English','en-GB',['This site always enforces a strict 10 mph speed limit.','The site always operates a two-way traffic flow system.']],
+ ['fr','Français','fr-FR',['Ce site applique toujours strictement une limite de vitesse de 10 mph.','Le site fonctionne toujours avec une circulation à double sens.']],
+ ['ro','Română','ro-RO',['În această incintă se aplică întotdeauna strict limita de viteză de 10 mph.','În incintă circulația se desfășoară întotdeauna în ambele sensuri.']],
+ ['pl','Polski','pl-PL',['Na terenie obiektu zawsze obowiązuje bezwzględne ograniczenie prędkości do 10 mph.','Na terenie obiektu zawsze obowiązuje ruch dwukierunkowy.']],
+ ['ru','Русский','ru-RU',['На этой территории всегда строго действует ограничение скорости 10 mph.','На территории всегда действует двустороннее движение.']],
+ ['bg','Български','bg-BG',['На тази територия винаги стриктно се прилага ограничение на скоростта от 10 mph.','На територията винаги има двупосочно движение.']],
+ ['uk','Українська','uk-UA',['На цій території завжди суворо діє обмеження швидкості 10 mph.','На території завжди діє двосторонній рух.']],
+ ['lt','Lietuvių','lt-LT',['Šioje teritorijoje visada griežtai taikomas 10 mph greičio apribojimas.','Teritorijoje visada veikia dvipusis eismas.']],
+ ['lv','Latviešu','lv-LV',['Šajā teritorijā vienmēr stingri tiek ievērots ātruma ierobežojums 10 mph.','Teritorijā vienmēr darbojas divvirzienu satiksme.']],
+ ['pt','Português','pt-PT',['Nesta instalação aplica-se sempre, de forma rigorosa, o limite de velocidade de 10 mph.','A instalação funciona sempre com circulação nos dois sentidos.']],
+ ['es','Español','es-ES',['En estas instalaciones se aplica siempre un límite de velocidad estricto de 10 mph.','Las instalaciones funcionan siempre con circulación en ambos sentidos.']],
+ ['de','Deutsch','de-DE',['Auf diesem Gelände wird stets strikt die Höchstgeschwindigkeit von 10 mph durchgesetzt.','Auf dem Gelände gilt stets Verkehr in beide Richtungen.']],
+ ['tr','Türkçe','tr-TR',['Bu sahada her zaman saatte 10 mil (10 mph) hız sınırı kesin olarak uygulanır.','Sahada her zaman çift yönlü trafik akışı uygulanır.']]
+];
+const synth='speechSynthesis' in window?window.speechSynthesis:null;
+const norm=l=>String(l||'').replace('_','-').toLowerCase();
+const state={};   // code -> {voiceIndex, rating, result}
+let token=0;
+function score(v,want){
+  const n=String(v.name||'').toLowerCase();let s=0;
+  if(norm(v.lang)===want)s+=10;
+  if(/natural|neural|premium|enhanced|wavenet|siri/.test(n))s+=8;
+  if(/google/.test(n))s+=4;
+  if(/compact|espeak|novelty|eloquence|default/.test(n))s-=8;
+  if(v.localService===true)s+=1;
+  return s;
+}
+function list(code,tag){
+  if(!synth)return [];
+  const want=norm(tag);
+  return synth.getVoices().filter(v=>norm(v.lang).split('-')[0]===code)
+    .map(v=>({v,s:score(v,want)})).sort((a,b)=>b.s-a.s);
+}
+function render(){
+  const env=document.getElementById('env');env.textContent='';
+  const p=document.createElement('p');
+  p.textContent=synth?('Speech available. Voices found on this phone: '+synth.getVoices().length):'Speech is NOT available in this browser.';
+  env.append(p);
+  const rows=document.getElementById('rows');rows.textContent='';
+  L.forEach(([code,name,tag,text])=>{
+    const vs=list(code,tag);
+    const st=state[code]=state[code]||{idx:0,rating:'not rated',result:'not tried'};
+    const row=document.createElement('div');row.className='row';
+    const b=document.createElement('b');b.textContent=name;row.append(b);
+    const s=document.createElement('div');s.className=vs.length?'ok':'no';
+    s.textContent=vs.length?('Voices found: '+vs.length):'No voice found for this language';
+    row.append(s);
+    if(vs.length){
+      const sel=document.createElement('select');
+      vs.forEach((o,i)=>{const op=document.createElement('option');op.value=i;op.textContent=(i===0?'Page default: ':'')+o.v.name+' ['+o.v.lang+']';sel.append(op);});
+      sel.value=st.idx;sel.onchange=()=>{st.idx=+sel.value;summary();};
+      row.append(sel);
+      const btn=document.createElement('button');btn.type='button';btn.textContent='Play '+name;
+      btn.onclick=()=>play(code,tag,text,vs,st,res);
+      row.append(btn);
+      const lab=document.createElement('label');lab.textContent='How does it sound?';
+      const rt=document.createElement('select');
+      ['not rated','Human','OK','Robotic','Hard to understand'].forEach(x=>{const op=document.createElement('option');op.textContent=x;rt.append(op);});
+      rt.value=st.rating;rt.onchange=()=>{st.rating=rt.value;summary();};
+      lab.append(rt);row.append(lab);
+    }
+    const res=document.createElement('small');res.textContent=st.result==='not tried'?'':st.result;row.append(res);
+    rows.append(row);
+  });
+  summary();
+}
+function play(code,tag,texts,vs,st,res){
+  if(!synth)return;
+  synth.cancel();const my=++token;
+  const v=vs[st.idx].v,t0=Date.now();
+  let i=0;
+  const next=()=>{
+    if(my!==token)return;
+    if(i>=texts.length){st.result='Finished with '+v.name+' ['+v.lang+'] in '+((Date.now()-t0)/1000).toFixed(1)+'s';res.textContent=st.result;summary();return;}
+    const u=new SpeechSynthesisUtterance(texts[i++]);
+    u.voice=v;u.lang=v.lang;u.rate=0.94;u.pitch=1;
+    if(i===1)u.onstart=()=>{st.result='Started with '+v.name+' ['+v.lang+']';res.textContent=st.result;summary();};
+    u.onend=()=>setTimeout(next,350);
+    u.onerror=e=>{if(e.error==='interrupted'||e.error==='canceled')return;st.result='ERROR: '+e.error;res.textContent=st.result;summary();};
+    synth.speak(u);
+  };
+  next();
+  setTimeout(()=>{if(my===token&&st.result==='not tried'){st.result='No start event after 3 seconds (may be silent or blocked)';res.textContent=st.result;summary();}},3000);
+}
+function summary(){
+  const lines=['Browser: '+navigator.userAgent,'Voices total: '+(synth?synth.getVoices().length:'speech unavailable')];
+  L.forEach(([code,name,tag])=>{
+    const vs=list(code,tag),st=state[code]||{idx:0,rating:'not rated',result:'not tried'};
+    const chosen=vs[st.idx]?vs[st.idx].v.name:'none';
+    lines.push(name+': '+(vs.length?vs.length+' voices':'NO VOICE')+' | page default: '+(vs[0]?vs[0].v.name:'none')+' | tried: '+chosen+' | rating: '+st.rating+' | play: '+st.result);
+  });
+  document.getElementById('out').value=lines.join('\n');
+}
+document.getElementById('refresh').onclick=render;
+if(synth){synth.getVoices();synth.addEventListener('voiceschanged',render);}
+render();setTimeout(render,1000);setTimeout(render,2500);
+</script></div></body></html>
