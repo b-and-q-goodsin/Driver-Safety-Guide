@@ -205,7 +205,7 @@ Zasady 1 do 10.
 Minimalne wymagania dotyczące środków ochrony indywidualnej.
 Na terenie obiektu należy zawsze nosić obuwie ochronne i zapiętą kamizelkę odblaskową.
 Stanowiska rozładunku naczep Goods-In.
-Ustaw przód pojazdu na wysokości czerwonej linii zatrzymania. Pojazdy bardzo długie lub z wyposażeniem z tyłu powinny poruszać się ze szczególną ostrożnością.
+Ustaw przód pojazdu równo z czerwoną linią zatrzymania. Pojazdy bardzo długie lub z wyposażeniem z tyłu powinny poruszać się ze szczególną ostrożnością.
 Ograniczenie prędkości.
 Na terenie obiektu zawsze obowiązuje bezwzględne ograniczenie prędkości do 10 mph.
 Organizacja ruchu.
@@ -324,9 +324,9 @@ Russian,Goods-In instructions,audio/ru/s5.mp3,"Инструкции Goods-In д�
 Если возникнут проблемы, мы придём и найдём вас, а когда вы закончите, принесём ваши ключи и документы.",,,
 Russian,Acknowledgement,audio/ru/s6.mp3,"Подтвердите, что вы всё поняли.
 Отметьте все три пункта, чтобы продолжить.
-Я прочитал(а) и понял(а) правила безопасности на территории.
-Я прочитал(а) и понял(а) инструкции Goods-In для водителей.
-Я согласен/согласна соблюдать эти правила и указания сотрудников на территории.",,,
+Правила безопасности на территории мне понятны.
+Инструкции Goods-In для водителей мне понятны.
+Обязуюсь соблюдать эти правила и указания сотрудников на территории.",,,
 Russian,Done,audio/ru/s7.mp3,"Подтверждение завершено.
 Спасибо. Ожидайте в зоне ожидания, пока с вами не свяжется сотрудник Goods-In.",,,
 Bulgarian,Welcome,audio/bg/s2.mp3,"Добре дошли в дистрибуционния център на Worksop.
@@ -361,7 +361,7 @@ Bulgarian,Rules 11 to 19,audio/bg/s4.mp3,"Правила за безопасно
 Пътници, домашни любимци и деца.
 При никакви обстоятелства на обекта не се допускат пътници, домашни любимци или деца. Това включва и охранителните будки.
 Злополуки, инциденти и почти настъпили инциденти.
-Всички злополуки, инциденти и почти настъпили инциденти трябва да бъдат докладвани незабавно на ръководител или колега на обекта.
+Всички злополуки, инциденти и почти настъпили инциденти трябва да бъдат докладвани на ръководител или колега на обекта.
 Опасности.
 Моля, незабавно съобщавайте за всякакви опасности, например разливи, на ръководител или колега на обекта.
 Лица, оказващи първа помощ.
@@ -456,8 +456,8 @@ Ukrainian,Goods-In instructions,audio/uk/s5.mp3,"Інструкції Goods-In �
 Якщо виникнуть проблеми, ми прийдемо та знайдемо вас, а коли ви закінчите, принесемо ваші ключі та документи.",,,
 Ukrainian,Acknowledgement,audio/uk/s6.mp3,"Підтвердьте, що ви все зрозуміли.
 Позначте всі три пункти, щоб продовжити.
-Я прочитав/прочитала та зрозумів/зрозуміла правила безпеки на території.
-Я прочитав/прочитала та зрозумів/зрозуміла інструкції Goods-In для водіїв.
+Правила безпеки на території мені зрозумілі.
+Інструкції Goods-In для водіїв мені зрозумілі.
 Я погоджуюся дотримуватися цих правил і вказівок працівників території.",,,
 Ukrainian,Done,audio/uk/s7.mp3,"Підтвердження завершено.
 Дякуємо. Зачекайте в зоні очікування, доки з вами не зв’яжеться працівник Goods-In.",,,
@@ -559,13 +559,13 @@ Split coupling (atsevišķa sakabināšana).
 Pasažieri, mājdzīvnieki un bērni.
 Nekādos apstākļos pasažieri, mājdzīvnieki vai bērni teritorijā nav atļauti. Tas attiecas arī uz apsardzes posteņiem.
 Negadījumi, incidenti un gandrīz notikuši negadījumi.
-Par visiem negadījumiem, incidentiem un gandrīz notikušiem negadījumiem jāziņo jebkuram vadītājam vai kolēģim, kas atrodas teritorijā.
+Par visiem negadījumiem, incidentiem un gandrīz notikušiem negadījumiem jāziņo jebkuram vadības pārstāvim vai kolēģim, kas atrodas teritorijā.
 Apdraudējumi.
-Lūdzu, nekavējoties ziņojiet jebkuram vadītājam vai kolēģim teritorijā par jebkuru apdraudējumu, piemēram, izlijušu šķidrumu.
+Lūdzu, nekavējoties ziņojiet jebkuram vadības pārstāvim vai kolēģim teritorijā par jebkuru apdraudējumu, piemēram, izlijušu šķidrumu.
 Pirmās palīdzības sniedzēji.
 Pirmās palīdzības sniedzējus var atpazīt pēc augstas redzamības vestes ar uzrakstu “First aider” priekšpusē un aizmugurē.
 Padomi un palīdzība darba drošības un veselības jautājumos.
-Padomu vai palīdzību darba drošības un veselības jautājumos var lūgt teritorijas vadītājiem.
+Padomu vai palīdzību darba drošības un veselības jautājumos var lūgt teritorijas vadības pārstāvjiem.
 Pārvietojamie riteņu ķīļi.
 Izkraujot piekabi, mēs novietosim dzeltenus riteņu ķīļus zem piekabes aizmugures riteņiem, lai novērstu tās aizripošanu. Lūdzu, pārbaudiet, vai tie ir noņemti, pirms mēģināt aizbraukt.
 Noteikumu pārkāpšana.
@@ -599,7 +599,7 @@ Informações de segurança para condutores: Siga todas as instruções dadas pe
 Portuguese,Rules 1 to 10,audio/pt/s3.mp3,"Regras de segurança das instalações.
 Regras 1 a 10.
 Requisitos mínimos de EPI.
-Nas instalações, é obrigatório usar sempre botas de segurança e um colete de alta visibilidade apertado.
+Nas instalações, é obrigatório usar sempre botas de segurança e um colete de alta visibilidade fechado.
 Cais para reboques do Goods-In.
 Alinhe a frente do veículo com a linha vermelha de paragem. Os veículos muito compridos ou com acessórios na traseira devem avançar com cuidado redobrado.
 Limite de velocidade.
@@ -613,7 +613,7 @@ Quando o veículo estiver estacionado num cais ou espaço designado, as chaves d
 Zona segura do condutor.
 A localização da “zona segura” durante a carga e descarga será indicada pelo ponto de controlo designado.
 Travões de estacionamento do cavalo e do reboque.
-Os travões de estacionamento devem estar sempre acionados quando o cavalo ou o reboque estiver estacionado. Verifique novamente antes de sair da cabina e de engatar ou desengatar o reboque.
+Os travões de estacionamento devem estar sempre acionados quando o cavalo ou o reboque estiverem estacionados. Verifique novamente antes de sair da cabina e de engatar ou desengatar o reboque.
 Batentes de roda cinzentos e calços fixos amarelos.
 Os nossos espaços de estacionamento têm batentes de roda. São cinzentos e servem para apoiar o pneu traseiro. Nos veículos adequados, deve passar por cima dos calços fixos amarelos para evitar um possível movimento involuntário.
 Portas traseiras.
@@ -625,7 +625,7 @@ Esta prática não é permitida nas instalações.
 Passageiros, animais de estimação e crianças.
 Em nenhuma circunstância são permitidos passageiros, animais de estimação ou crianças nas instalações. Isto inclui as portarias.
 Acidentes, incidentes e quase acidentes.
-Todos os acidentes, incidentes e quase acidentes devem ser comunicados imediatamente a qualquer responsável ou colega nas instalações.
+Todos os acidentes, incidentes e quase acidentes devem ser comunicados a qualquer responsável ou colega nas instalações.
 Perigos.
 Comunique imediatamente qualquer perigo, por exemplo derrames, a qualquer responsável ou colega.
 Socorristas.

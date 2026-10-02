@@ -16,7 +16,7 @@
 - [x] Rule 2 reviewer wording accepted, even where firmer than the English "should"
 - [x] Reviewer wording accepted for all other changes
 - [ ] Site confirms the Goods-In item 6 wording matches how keys and paperwork are returned
-- [ ] Polish review sheet still to come
+- [ ] Polish: a Polish speaker reads the page and listens to it (Polish is released without a native review)
 - [ ] Reviewer names and dates still to be recorded on every returned sheet
 
 ## Translations (repeat for each language)
@@ -25,8 +25,13 @@
 - [ ] Portuguese, Spanish, German and Turkish each reviewed and signed off
 - [ ] Reviewer name and date recorded on each sheet in the translation-review folder
 - [ ] Each reviewer has read the page on a phone and listened to it
-- [ ] Language set to true in REVIEWED only after sign-off
+- [x] All 13 languages set to true in REVIEWED by the owner
 - [ ] Safety terms agreed (split coupling, wheel stops, fixed chocks, near miss)
+
+## QR signs
+- [ ] Print QR_sign_13_languages.pdf
+- [ ] Sign captions in the 12 other languages checked by native speakers
+- [ ] Printed signs scanned on several phones before bulk printing
 
 ## Device tests
 - [ ] Android Chrome, one older phone and one recent
